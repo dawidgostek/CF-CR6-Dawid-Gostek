@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var arr = [];
+//--base class--
 var Location = /** @class */ (function () {
     function Location(image, place, address, zipCode, add) {
         this.image = image;
@@ -26,6 +27,7 @@ var Location = /** @class */ (function () {
     };
     return Location;
 }());
+//--class Locations with them html code from base class--
 var Locations = /** @class */ (function (_super) {
     __extends(Locations, _super);
     function Locations(image, place, address, zipCode, add) {
@@ -36,6 +38,7 @@ var Locations = /** @class */ (function (_super) {
     };
     return Locations;
 }(Location));
+//-- class Restaurant with html code from base class and additional html code--
 var Restaurant = /** @class */ (function (_super) {
     __extends(Restaurant, _super);
     function Restaurant(image, place, address, zipCode, type, telephoneNumber, website, add) {
@@ -52,6 +55,7 @@ var Restaurant = /** @class */ (function (_super) {
     };
     return Restaurant;
 }(Location));
+//-- class Events with html code from base class and additional html code--
 var Events = /** @class */ (function (_super) {
     __extends(Events, _super);
     function Events(image, place, address, zipCode, website, date, time, price, add) {
@@ -67,6 +71,7 @@ var Events = /** @class */ (function (_super) {
     };
     return Events;
 }(Location));
+//--new arrays--
 new Locations("../img/church.jpg", "St. Charles Church", "Karlsplatz 1,", "1010 Vienna", "24.03.2020 12:45");
 new Locations("../img/zoo.jpg", "Zoo Vienna", "Maxingstraße 13b,", "1130 Wien", "20.04.2020 15:45");
 new Restaurant("../img/lemon.png", "Lemon Leaf Thai Restaurant", "Kettenbrückengasse 19,", "1050 Vienna", "Thai", "+43(1)5812308", "http://www.lemonleaf.at", "25.03.2020 17:45");
@@ -74,6 +79,7 @@ new Restaurant("../img/sixta.png", "SIXTA", "Schönbrunner Straße 21,", "1050 V
 new Events("../img/kris.jpg", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1,", "1150 Wien", "http://kriskristofferson.com", "Fr., 15.11.2021", "20:00", "58,50", "26.03.2020 16:45");
 new Events("../img/lenny.jpg", "Lenny Kravitz", "Wiener Stadthalle - Halle D, Roland Rainer Platz 1,", "1150 Wien", "http://www.lennykravitz.com", "Sat, 09.12.2029", "19:30", "47,80", "12.06.2020 18:15");
 console.log(arr);
+//--function with the loop--
 $(document).ready(function () {
     for (var i in arr) {
         $(".row").append("<div class=\"box col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5\"><div class=\"card h-100 rounded\">" + arr[i].display() + "</div></div></div>");

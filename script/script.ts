@@ -1,5 +1,6 @@
 let arr = [];
 
+//--base class--
 class Location {
     image: "";
     place: "";
@@ -27,6 +28,7 @@ class Location {
 		`
 	}
 }
+//--class Locations with them html code from base class--
 class Locations extends Location{
     constructor(image, place, address, zipCode, add){
         super(image, place, address, zipCode, add);
@@ -35,6 +37,7 @@ class Locations extends Location{
         return `${super.render()}`
     }
 }
+//-- class Restaurant with html code from base class and additional html code--
 class Restaurant extends Location {
     type = "";
     website: "";
@@ -50,6 +53,7 @@ class Restaurant extends Location {
 		return `${super.render()}<p>${this.type} Restaurant</p><p>tel: ${this.telephoneNumber}</p><a href="${this.website}" target="_blank" class="btn btn-secondary text-light">Go to the Website</a>`
 	}
 }
+//-- class Events with html code from base class and additional html code--
 class Events extends Location {
     website: "";
     date: "";
@@ -67,7 +71,7 @@ class Events extends Location {
 		return `${super.render()}<p>${this.date} - ${this.time}</p><p>Price: ${this.price}€</p><a href="${this.website}" target="_blank" class="btn btn-secondary text-light">Go to the Website</a>`
 	}
 }
-
+//--new arrays--
 new Locations("../img/church.jpg", "St. Charles Church", "Karlsplatz 1,", "1010 Vienna", "24.03.2020 12:45");
 new Locations("../img/zoo.jpg", "Zoo Vienna", "Maxingstraße 13b,", "1130 Wien", "20.04.2020 15:45");
 new Restaurant("../img/lemon.png", "Lemon Leaf Thai Restaurant", "Kettenbrückengasse 19,", "1050 Vienna", "Thai", "+43(1)5812308",  "http://www.lemonleaf.at", "25.03.2020 17:45");
@@ -76,9 +80,9 @@ new Events("../img/kris.jpg", "Kris Kristofferson", "Wiener Stadthalle, Halle F,
 new Events("../img/lenny.jpg", "Lenny Kravitz", "Wiener Stadthalle - Halle D, Roland Rainer Platz 1,", "1150 Wien", "http://www.lennykravitz.com", "Sat, 09.12.2029", "19:30", "47,80", "12.06.2020 18:15")
 console.log(arr);
 
+//--function with the loop--
 $(document).ready(function(){
-
 	for (let i in arr){
         $(".row").append(`<div class="box col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-5"><div class="card h-100 rounded">${arr[i].display()}</div></div></div>`);
         }
-})
+)
